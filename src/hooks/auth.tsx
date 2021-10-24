@@ -39,7 +39,7 @@ type AuthorizationResponse = {
   type?: string
 }
 
-const CLIENT_ID = '135e9a0af813b5e4a57c';
+const CLIENT_ID = 'client-id-here';
 const SCOPE = 'read:user';
 const USER_STORAGE = '@NLW-Heat:user';
 const TOKEN_STORAGE = '@NLW-Heat:token';
@@ -66,7 +66,7 @@ function AuthProvider({ children }: AuthProviderProps) {
 
         api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
         await AsyncStorage.setItem(USER_STORAGE, JSON.stringify(user));
-        await AsyncStorage.setItem(TOKEN_STORAGE, JSON.stringify(token));
+        await AsyncStorage.setItem(TOKEN_STORAGE, token);
 
         setUser(user);
       }
