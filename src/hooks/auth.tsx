@@ -8,6 +8,13 @@ import * as AuthSessions from 'expo-auth-session';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { api } from '../services/api';
 
+import {
+  CLIENT_ID,
+  SCOPE,
+  TOKEN_STORAGE,
+  USER_STORAGE
+} from '../configs/env';
+
 type User = {
   id: string;
   avatar_url: string;
@@ -38,11 +45,6 @@ type AuthorizationResponse = {
   },
   type?: string
 }
-
-const CLIENT_ID = 'client-id-here';
-const SCOPE = 'read:user';
-const USER_STORAGE = '@NLW-Heat:user';
-const TOKEN_STORAGE = '@NLW-Heat:token';
 
 const AuthContext = createContext({} as AuthContextData);
 
