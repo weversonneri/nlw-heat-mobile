@@ -61,7 +61,8 @@ function AuthProvider({ children }: AuthProviderProps) {
 
       if (authSessionResponse.type === 'success' && authSessionResponse.params.code !== 'access_denied') {
         const authResponse = await api.post('/authenticate', {
-          code: authSessionResponse.params.code
+          code: authSessionResponse.params.code,
+          serviceType: 'mobile'
         });
 
         const { user, token } = authResponse.data as AuthResponse;
